@@ -17,6 +17,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import thermalexpansion.block.machine.BlockMachine;
 
@@ -34,6 +35,11 @@ public class BlockQuarry extends BlockMachine {
 		
 		sideOff = par1IconRegister.registerIcon("tquarry:quarryOff");
 		sideOn = par1IconRegister.registerIcon("tquarry:quarryOn");
+	}
+	
+	@Override
+	public Icon getIcon(int par1, int par2) {
+		return par1 == 3 ? sideOff : super.getIcon(par1, par2);
 	}
 	
 	@Override
