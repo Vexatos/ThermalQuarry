@@ -10,12 +10,14 @@
  */
 package vazkii.tquarry.common.block;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import thermalexpansion.block.machine.BlockMachine;
-import thermalexpansion.block.machine.TileMachineBase;
+import thermalexpansion.block.machine.TileCharger;
+import vazkii.tquarry.common.ThermalQuarry;
 import cofh.render.IconRegistry;
 
-public class TileQuarry extends TileMachineBase {
+public class TileQuarry extends TileCharger {
 
 	public static final int TYPE = BlockMachine.Types.CHARGER.ordinal();
 	
@@ -35,6 +37,12 @@ public class TileQuarry extends TileMachineBase {
 			return  side != this.facing ? IconRegistry.getIcon("MachineSide") : this.isActive ? BlockQuarry.sideOn : BlockQuarry.sideOff;
 		
 		return super.getBlockTexture(side, pass);
+	}
+	
+	@Override
+	public boolean openGui(EntityPlayer player) {
+		player.openGui(ThermalQuarry.instance, 0, worldObj, xCoord, yCoord, zCoord);
+		return true;
 	}
 	
 }
