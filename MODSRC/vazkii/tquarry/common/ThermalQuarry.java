@@ -10,12 +10,33 @@
  */
 package vazkii.tquarry.common;
 
+import net.minecraft.block.Block;
+import vazkii.tquarry.common.block.BlockQuarry;
+import vazkii.tquarry.common.block.TileQuarry;
+import vazkii.tquarry.common.core.ConfigHandler;
+import vazkii.tquarry.common.lib.LibIDs;
 import vazkii.tquarry.common.lib.LibMisc;
+import vazkii.tquarry.common.lib.LibNames;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = LibMisc.MOD_ID, name = LibMisc.MOD_NAME, version = LibMisc.MOD_VERSION, dependencies = LibMisc.DEPENDENCIES)
 @NetworkMod(clientSideRequired = true)
 public class ThermalQuarry {
+	
+	public static Block quarry;
+	
+	@EventHandler
+	public void onPreInit(FMLPreInitializationEvent event) {
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		
+		quarry = new BlockQuarry(LibIDs.quarryBlockID).setUnlocalizedName(LibNames.BLOCK_QUARRY);
+		
+		GameRegistry.registerBlock(quarry, LibNames.BLOCK_QUARRY);
+		GameRegistry.registerTileEntity(TileQuarry.class, LibNames.BLOCK_QUARRY);
+	}
 
 }
