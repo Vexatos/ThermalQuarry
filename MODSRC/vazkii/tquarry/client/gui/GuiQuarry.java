@@ -12,7 +12,9 @@ package vazkii.tquarry.client.gui;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StatCollector;
 import thermalexpansion.gui.client.machine.GuiCharger;
+import vazkii.tquarry.common.ThermalQuarry;
 import cofh.core.CoFHProps;
 import cofh.gui.element.TabBase;
 import cofh.gui.element.TabInfo;
@@ -23,7 +25,7 @@ public class GuiQuarry extends GuiCharger {
 
 	public GuiQuarry(InventoryPlayer inventory, TileEntity theTile) {
 		super(inventory, theTile);
-		name = "Quarry";
+		name = ThermalQuarry.quarry.getLocalizedName();
 	}
 	
 	@Override

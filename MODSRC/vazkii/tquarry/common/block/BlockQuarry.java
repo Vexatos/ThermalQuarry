@@ -10,7 +10,11 @@
  */
 package vazkii.tquarry.common.block;
 
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -30,6 +34,11 @@ public class BlockQuarry extends BlockMachine {
 		
 		sideOff = par1IconRegister.registerIcon("tquarry:quarryOff");
 		sideOn = par1IconRegister.registerIcon("tquarry:quarryOn");
+	}
+	
+	@Override
+	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
+		par3List.add(new ItemStack(par1, 1, 0));
 	}
 	
 	@Override

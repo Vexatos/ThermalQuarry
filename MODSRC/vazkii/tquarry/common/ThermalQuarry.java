@@ -15,6 +15,7 @@ import vazkii.tquarry.common.block.BlockQuarry;
 import vazkii.tquarry.common.block.TileQuarry;
 import vazkii.tquarry.common.core.ConfigHandler;
 import vazkii.tquarry.common.core.GuiHandler;
+import vazkii.tquarry.common.core.LocalizationHandler;
 import vazkii.tquarry.common.lib.LibIDs;
 import vazkii.tquarry.common.lib.LibMisc;
 import vazkii.tquarry.common.lib.LibNames;
@@ -43,6 +44,8 @@ public class ThermalQuarry {
 		
 		GameRegistry.registerBlock(quarry, LibNames.BLOCK_QUARRY);
 		GameRegistry.registerTileEntity(TileQuarry.class, LibNames.BLOCK_QUARRY);
+		
+		LocalizationHandler.loadLocalizations();
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}
